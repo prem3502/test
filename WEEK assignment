@@ -1,0 +1,57 @@
+package learn;
+import java.util.*;
+
+public class Week {
+	static int a=0;
+	static Scanner  in=new Scanner(System.in);
+	public static void credit()
+	{
+		System.out.println("Enter the credit amount: ");
+		int x=in.nextInt();
+		System.out.print("The amount credit is:"+x);
+		a+=x;
+		display();
+	}
+	public static void debit()
+	{
+		System.out.println("Enter amount to be debited:");
+		int x=in.nextInt();
+		if(a<=0)
+			System.out.println("Low Balance\n");
+		else {
+			if(a-x<0)
+			  System.out.println("Balance in account is less than debit amount");
+			else {
+			a=a-x;
+			System.out.print("The amount debited is: "+x);
+			display();
+			}
+		}
+		
+	}
+	public static void display()
+	{
+		System.out.println("Balance is:"+a);
+	}
+
+	public static void main(String[] args) {
+		int ch;
+		while(true)
+		{
+			System.out.println("Enter the Chooice:\n1)Credit 2)Debit 3)Balance 4)Exit");
+			ch=in.nextInt();
+			switch(ch)
+			{
+			case 1:credit();
+			   break;
+			case 2:debit();
+			   break;
+			case 3:display();
+			   break;
+			case 4:System.exit(0);
+			    break;
+			
+			}
+		}
+	}
+}
